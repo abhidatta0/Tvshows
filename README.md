@@ -1,46 +1,31 @@
-# Getting Started with Create React App
+You should reimplement the BIT Shows application with the identical UI and the following additional requirements: 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+API Docs: 
+API TV Maze - https://www.tvmaze.com/api
+Shows: https://api.tvmaze.com/shows
 
-## Available Scripts
+## Stack:
+React with TypeScript (required)
+Axios - http client (required)
+Material UI (required)
+Using hooks, functional components and context (required)
+Monorepo setup with separation of concerns - (example: ui, services, utils) (required)
+Requirements
+As a first time visitor I should be able to see email input to login only with an email. Login is local only. If I leave a page and come back I would need to login again.
+Each app instance is allowed to have only users from a specific domain. If I'm a first user of the app, attempting to login with an email will create an account for me and `lock` the domain for the following users. Every following user must have the email with the same domain as the locked one to be able to create a new account, or to be able to login if already used the app.
+Attempting to login with the email outside of the organization will present an appropriate error.
+As a logged in user
+List shows
+List show details on show card click
+Search shows by name from the displayed shows
+Theme switch / Dark & light mode
+TV show sorting by name and/or by rating (required with context)
+Save favorite shows and show them on a separate page as favorites. Saved shows should be scoped by user
+Option to logout
+Option to remove account
 
-In the project directory, you can run:
+## Notes
+Make sure your code is versioned and published on GitHub/GitLab and you should send us a link. In README.md of the project, you should list how to run the project, link to the published project if any, and description of your solution where you explain your decisions, assumptions, or limitations of the application if any. Ideally you should also integrate some simple CI/CD.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Notes
+If you’re uncertain about any details of the project, feel free to make your own decisions but also be prepared to explain decisions you made along the way. We will pay particular attention to project setup and structure, code quality, commit history, and functionality of the application.
