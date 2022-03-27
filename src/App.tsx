@@ -1,11 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
 import Styles from './App.module.css';
+import {Navbar} from './components';
 
 function App() {
   return (
-    <div className={Styles.App}>
-      Learn React
+    <div>
+      <Navbar />
     </div>
   );
 }
