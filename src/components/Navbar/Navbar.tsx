@@ -1,9 +1,16 @@
 import React from 'react';
 import Styles from './style.module.scss';
 
+import {Button} from '../index';
+
 const Navbar = ()=>{
   return (
-    <h1 className={Styles.App}>Hello1</h1>
+    <div className={Styles.wrapper}>
+      <div className={Styles.content}>
+        <a href="">BIT SHOWS</a>
+        <Button title="About" />
+      </div>
+    </div>
   )
 }
 
