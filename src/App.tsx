@@ -3,15 +3,15 @@ import Styles from './App.module.scss';
 import { Navbar, ShowCard } from './components';
 
 import { getTVShowsList } from './apis';
+import { TVSHOWSINFO } from './typings/tvShowsTypes';
 
 const App = () => {
-    const [tvshows, setTvshows] = useState([]);
+    const [tvshows, setTvshows] = useState<TVSHOWSINFO[]>([]);
 
     const fetchShows = async () => {
         try {
             const tvshowsList = await getTVShowsList();
             setTvshows(tvshowsList);
-            console.log(JSON.stringify(tvshows[0]));
         } catch (e) {
             console.log(e);
         }
