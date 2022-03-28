@@ -1,9 +1,17 @@
-import { Navbar, Home } from './components';
+import { Routes, Route } from 'react-router-dom';
+import { Navbar, Home, About, NotFound } from './components';
+import Styles from './App.module.scss';
 
 const App = () => (
     <div>
         <Navbar />
-        <Home />
+        <div className={Styles.main}>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="about" element={<About />} />
+                <Route path="*" element={<NotFound />} />
+            </Routes>
+        </div>
     </div>
 );
 

@@ -7,10 +7,12 @@ type Props = {
     onClick?: () => void;
 };
 const Button = ({ title, wrapperStyle, titleStyle, onClick }: Props) => (
-    <button className={`${Styles.wrapper} ${wrapperStyle}`} type="button">
-        <p className={`${Styles.title} ${titleStyle}`} onClick={onClick}>
-            {title}
-        </p>
+    <button
+        className={`${Styles.wrapper} ${wrapperStyle}`}
+        type="button"
+        onClick={onClick}
+    >
+        <p className={`${Styles.title} ${titleStyle}`}>{title}</p>
     </button>
 );
 
