@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import Styles from './ShowCard.module.scss';
 
 type Props = {
@@ -18,4 +19,4 @@ const ShowCard = ({ showName, imageSource, rating }: Props) => (
     </div>
 );
 
-export default ShowCard;
+export default memo(ShowCard);
