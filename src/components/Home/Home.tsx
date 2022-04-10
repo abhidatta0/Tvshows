@@ -14,7 +14,7 @@ const Home = () => {
             const tvshowsList = await getTVShowsList();
             setTvshows(tvshowsList);
         } catch (e) {
-            console.log(e);
+            setTvshows([]);
         }
     };
     useEffect(() => {
@@ -25,6 +25,7 @@ const Home = () => {
             <div className={Styles.cardsContainer}>
                 {tvshows.map((item) => (
                     <ShowCard
+                        id={item.id}
                         showName={item.name}
                         imageSource={item.image.original}
                         rating={item.rating.average}
