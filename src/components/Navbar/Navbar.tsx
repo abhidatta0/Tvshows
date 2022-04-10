@@ -13,7 +13,9 @@ const Navbar = () => {
     return (
         <nav className={Styles.wrapper}>
             <div className={Styles.content}>
-                <Link to="/">BIT SHOWS</Link>
+                <Link to="/" className={Styles.title}>
+                    BIT Shows
+                </Link>
                 <Button title="About" onClick={handle} />
             </div>
         </nav>

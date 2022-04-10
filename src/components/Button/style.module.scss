@@ -4,9 +4,11 @@
     padding: 20px;
     cursor: pointer;
     color: #fff;
+    transition: background-color .2s;
 
     &:hover {
-        background-color: #1976d2;
+        background-color: white;
+        color: #1976d2;
     }
 
     .title {
