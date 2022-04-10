@@ -1,12 +1,14 @@
+@use "../../baseStyles/colors.module.scss";
+
 .tag{
     height: 32px;
     font-size: 0.9rem;
     font-weight: 500;
-    color: rgba(0,0,0,.6);
+    color: colors.$dark100;
     line-height: 32px;
     padding: 5px 12px;
     border-radius: 16px;
-    background-color: #e4e4e4;
+    background-color: colors.$white100;
     margin-bottom: 5px;
     margin-right: 5px;
 }

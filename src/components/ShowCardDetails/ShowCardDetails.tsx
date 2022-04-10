@@ -13,7 +13,6 @@ const ShowCardDetails = () => {
         try {
             if (showId) {
                 const result = await getTVShowDetail(parseInt(showId, 10));
-                console.log(result);
                 setDetail(result);
             }
         } catch (e) {

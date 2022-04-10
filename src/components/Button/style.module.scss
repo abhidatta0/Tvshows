@@ -1,17 +1,21 @@
+@use "../../baseStyles/colors.module.scss";
+@use "../../baseStyles/fonts.module.scss";
+
+
 .wrapper {
-    background-color: #2196f3;
+    background-color: colors.$blue500;
     border: 0;
     padding: 20px;
     cursor: pointer;
-    color: #fff;
+    color: colors.$white;
     transition: background-color .2s;
 
     &:hover {
-        background-color: white;
-        color: #1976d2;
+        background-color: colors.$white;
+        color: colors.$blue400;
     }
 
     .title {
-        font-size: 1rem;
+        font-size: fonts.$medium;
     }
 }

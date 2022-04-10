@@ -1,3 +1,5 @@
+@use "../../baseStyles/colors.module.scss";
+
 .wrapper {
     width: 30%;
     position: relative;
@@ -10,7 +12,7 @@
     }
 
     &:hover {
-        box-shadow: 5px 5px 12px 0 grey;
+        box-shadow: 5px 5px 12px 0 colors.$grey;
     }
 
     .img {
@@ -24,7 +26,7 @@
         padding-left: 24px;
 
         .cardTitle {
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: 300;
         }
     }
@@ -39,10 +41,10 @@
         position: absolute;
         right: 3%;
         bottom: 8%;
-        background-color: #2196f3;
+        background-color: colors.$blue500;
         width: 56px;
         height: 56px;
-        color: #fff;
+        color: colors.$white;
     }
 
     .truncate {
