@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useQuery } from 'react-query';
 import { Tag } from '../index';
 import { getTVShowDetail } from '../../apis';
 import { TVSHOWSINFO } from '../../typings/tvShowsTypes';
@@ -7,50 +7,56 @@ import Styles from './ShowCardDetails.module.scss';
 
 const ShowCardDetails = () => {
     const params = useParams();
-    const showId = params.id;
-    const [detail, setDetail] = useState<TVSHOWSINFO>({} as TVSHOWSINFO);
-    const fetchShowDetails = async () => {
-        try {
-            if (showId) {
-                const result = await getTVShowDetail(parseInt(showId, 10));
-                setDetail(result);
-            }
-        } catch (e) {
-            setDetail({} as TVSHOWSINFO);
-        }
-    };
-    useEffect(() => {
-        if (showId) {
-            fetchShowDetails();
-        }
-    }, [showId]);
-    if (Object.keys(detail).length === 0) {
-        return null;
+    const showId = parseInt(params.id ?? '1', 10);
+    const {
+        data: detail,
+        isLoading,
+        isError,
+    } = useQuery<TVSHOWSINFO, Error>(['show', showId], () =>
+        getTVShowDetail(showId)
+    );
+
+    if (isLoading) {
+        return <h1>Loading...</h1>;
     }
 
-    return (
-        <main className={Styles.wrapper}>
-            <section className={Styles.topSection}>
-                <div className={Styles.imgDiv}>
-                    <img
-                        src={detail.image.original}
-                        alt="show"
-                        className={Styles.img}
-                    />
-                </div>
-                <div className={Styles.aboutShow}>
-                    <p className={Styles.name}>{detail.name}</p>
-                    {detail.genres.map((genre) => (
-                        <Tag key={genre} genre={genre} />
-                    ))}
-                    <p
-                        className={Styles.summary}
-                        dangerouslySetInnerHTML={{ __html: detail.summary }}
-                    />
-                </div>
-            </section>
-        </main>
-    );
+    if (isError) {
+        return <h1>Error...</h1>;
+    }
+
+    if (detail) {
+        const {
+            image: { original: originalImage },
+            genres,
+            name,
+            summary,
+        } = detail;
+        return (
+            <main className={Styles.wrapper}>
+                <section className={Styles.topSection}>
+                    <div className={Styles.imgDiv}>
+                        <img
+                            src={originalImage}
+                            alt="show"
+                            className={Styles.img}
+                        />
+                    </div>
+                    <div className={Styles.aboutShow}>
+                        <p className={Styles.name}>{name}</p>
+                        {genres.map((genre) => (
+                            <Tag key={genre} genre={genre} />
+                        ))}
+                        <p
+                            className={Styles.summary}
+                            dangerouslySetInnerHTML={{ __html: summary }}
+                        />
+                    </div>
+                </section>
+            </main>
+        );
+    }
+
+    return null;
 };
 
 export default ShowCardDetails;

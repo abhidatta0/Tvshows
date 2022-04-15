@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import Styles from './Home.module.scss';
 
 import { TVSHOWSINFO } from '../../typings/tvShowsTypes';
@@ -7,31 +7,32 @@ import { getTVShowsList } from '../../apis';
 import { ShowCard } from '../index';
 
 const Home = () => {
-    const [tvshows, setTvshows] = useState<TVSHOWSINFO[]>([]);
+    const {
+        data: tvshows,
+        isLoading,
+        isError,
+    } = useQuery<TVSHOWSINFO[], Error>('shows', getTVShowsList);
 
-    const fetchShows = async () => {
-        try {
-            const tvshowsList = await getTVShowsList();
-            setTvshows(tvshowsList);
-        } catch (e) {
-            setTvshows([]);
-        }
-    };
-    useEffect(() => {
-        fetchShows();
-    }, []);
+    if (isLoading) {
+        return <h1>Loading...</h1>;
+    }
+
+    if (isError) {
+        return <h1>Error...</h1>;
+    }
     return (
         <div className={Styles.main}>
             <div className={Styles.cardsContainer}>
-                {tvshows.map((item) => (
-                    <ShowCard
-                        id={item.id}
-                        showName={item.name}
-                        imageSource={item.image.original}
-                        rating={item.rating.average}
-                        key={item.id}
-                    />
-                ))}
+                {tvshows &&
+                    tvshows.map((item) => (
+                        <ShowCard
+                            id={item.id}
+                            showName={item.name}
+                            imageSource={item.image.original}
+                            rating={item.rating.average}
+                            key={item.id}
+                        />
+                    ))}
             </div>
         </div>
     );
