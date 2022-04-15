@@ -8,7 +8,7 @@ Shows: https://api.tvmaze.com/shows
 
 React with TypeScript (required)  
 Axios - http client (required)  
-Material UI (required)  
+React-query
 Using hooks, functional components and context (required)  
 Monorepo setup with separation of concerns - (example: ui, services, utils) (required)
 

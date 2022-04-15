@@ -1,12 +1,15 @@
+import { useState } from 'react';
 import { useQuery } from 'react-query';
 import Styles from './Home.module.scss';
 
 import { TVSHOWSINFO } from '../../typings/tvShowsTypes';
 import { getTVShowsList } from '../../apis';
 
-import { ShowCard } from '../index';
+import { ShowCard, Pagination } from '../index';
 
 const Home = () => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const [showsPerPage] = useState(6);
     const {
         data: tvshows,
         isLoading,
@@ -20,11 +23,16 @@ const Home = () => {
     if (isError) {
         return <h1>Error...</h1>;
     }
+
+    // Get current shows
+    const indexOfLastShow = currentPage * showsPerPage;
+    const indexOfFirstShow = indexOfLastShow - showsPerPage;
+    const currentShows = tvshows?.slice(indexOfFirstShow, indexOfLastShow);
     return (
         <div className={Styles.main}>
             <div className={Styles.cardsContainer}>
-                {tvshows &&
-                    tvshows.map((item) => (
+                {currentShows &&
+                    currentShows.map((item) => (
                         <ShowCard
                             id={item.id}
                             showName={item.name}
@@ -34,6 +42,13 @@ const Home = () => {
                         />
                     ))}
             </div>
+            <Pagination
+                elementsPerPage={showsPerPage}
+                totalElements={tvshows?.length || 0}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+                customStyle={Styles.customPaginationStyle}
+            />
         </div>
     );
 };

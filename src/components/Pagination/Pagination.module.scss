@@ -1,0 +1,19 @@
+@use "../../baseStyles/colors.module.scss";
+
+.page{
+    border: 1px solid colors.$grey;
+    padding: 5px;
+    color: colors.$blue400;
+    cursor: pointer;
+
+    &:hover{
+        background-color: colors.$grey;
+        color: colors.$white;
+    }
+
+
+    &.currentPage{
+        background-color: colors.$blue500;
+        color: colors.$white;
+    }
+}

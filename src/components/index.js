@@ -7,6 +7,7 @@ import About from './About/About';
 import ShowCardDetails from './ShowCardDetails/ShowCardDetails';
 import NotFound from './NotFound/NotFound';
 import Tag from './Tag/Tag';
+import Pagination from './Pagination/Pagination';
 
 export {
     Navbar,
@@ -17,4 +18,5 @@ export {
     About,
     NotFound,
     Tag,
+    Pagination,
 };
