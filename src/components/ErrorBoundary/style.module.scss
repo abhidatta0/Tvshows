@@ -1,0 +1,14 @@
+@use "../../baseStyles/fonts.module.scss";
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 32%;
+
+    .errorText{
+        font-size: fonts.$large;
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+}

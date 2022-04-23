@@ -1,14 +1,21 @@
 import { Routes, Route } from 'react-router-dom';
 import { QueryClientProvider, QueryClient } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import { Navbar, Home, About, NotFound, ShowCardDetails } from './components';
+import {
+    Navbar,
+    Home,
+    About,
+    NotFound,
+    ShowCardDetails,
+    ErrorBoundary,
+} from './components';
 import Styles from './App.module.scss';
 
 const queryClient = new QueryClient();
 
 const App = () => (
     <QueryClientProvider client={queryClient}>
-        <div>
+        <ErrorBoundary>
             <Navbar />
             <div className={Styles.main}>
                 <Routes>
@@ -18,7 +25,7 @@ const App = () => (
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </div>
-        </div>
+        </ErrorBoundary>
         <ReactQueryDevtools position="bottom-right" />
     </QueryClientProvider>
 );

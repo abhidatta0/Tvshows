@@ -10,6 +10,7 @@ import NotFound from './NotFound/NotFound';
 import Tag from './Tag/Tag';
 import Pagination from './Pagination/Pagination';
 import LoadingSpinner from './LoadingSpinner/LoadingSpinner';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 
 export {
     Navbar,
@@ -23,4 +24,5 @@ export {
     Tag,
     Pagination,
     LoadingSpinner,
+    ErrorBoundary,
 };
