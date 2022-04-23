@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
-import { Tag } from '../index';
+import { Tag, LoadingSpinner } from '../index';
 import { getTVShowDetail } from '../../apis';
 import { TVSHOWSINFO } from '../../typings/tvShowsTypes';
 import Styles from './ShowCardDetails.module.scss';
@@ -17,7 +17,7 @@ const ShowCardDetails = () => {
     );
 
     if (isLoading) {
-        return <h1>Loading...</h1>;
+        return <LoadingSpinner />;
     }
 
     if (isError) {

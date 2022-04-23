@@ -9,6 +9,7 @@ import ShowCardDetails from './ShowCardDetails/ShowCardDetails';
 import NotFound from './NotFound/NotFound';
 import Tag from './Tag/Tag';
 import Pagination from './Pagination/Pagination';
+import LoadingSpinner from './LoadingSpinner/LoadingSpinner';
 
 export {
     Navbar,
@@ -21,4 +22,5 @@ export {
     NotFound,
     Tag,
     Pagination,
+    LoadingSpinner,
 };

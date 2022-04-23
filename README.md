@@ -11,6 +11,7 @@ Shows: https://api.tvmaze.com/shows
 - React-router-dom v6
 - Axios - http client 
 - React-query
+- Sass
 - Using hooks, functional components  
 - Setup with separation of concerns - (example: ui, services, utils) 
 
