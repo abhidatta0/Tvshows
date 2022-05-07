@@ -1,9 +1,17 @@
+@use '../../baseStyles/breakpoints.module.scss';
+
 .wrapper{
     margin:1.5rem 0;
 
     .topSection{
         display: flex;
         justify-content: space-between;
+
+        @include breakpoints.for-phone-only{
+            display: block;
+            width: 80%;
+            margin: 0 auto;
+        }
         .imgDiv{
             width: 450px;
             height: 700px;
@@ -16,8 +24,17 @@
 
         .aboutShow{
             width:50%;
+
+            @include breakpoints.for-phone-only{
+                width:100%;
+                text-align: center;
+            }
             .name{
                 font-size: 4rem;
+
+                @include breakpoints.for-phone-only{
+                    font-size: 3rem;
+                }
             }
 
             .summary{

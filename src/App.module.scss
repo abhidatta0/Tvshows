@@ -1,4 +1,10 @@
+@use './baseStyles/breakpoints.module.scss';
+
 .main {
     margin: 0 auto;
     width: 70%;
+
+    @include breakpoints.for-phone-only{
+       width: 100%;
+    }
 }

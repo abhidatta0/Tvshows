@@ -1,9 +1,22 @@
+@use '../../baseStyles/breakpoints.module.scss';
+
 .cardsContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
+    @include breakpoints.for-phone-only{
+        display: block;
+    }
 }
 
 .customPaginationStyle{
     margin-bottom: 1rem;
+
+    @include breakpoints.for-phone-only{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.1rem;
+        padding-left: 1rem;
+    }
 }

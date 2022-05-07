@@ -1,4 +1,6 @@
 @use "../../baseStyles/colors.module.scss";
+@use '../../baseStyles/breakpoints.module.scss';
+
 
 .wrapper {
     width: 30%;
@@ -6,6 +8,12 @@
     height: 45rem;
     cursor: pointer;
     margin:1.5rem 0;
+
+    @include breakpoints.for-phone-only{
+        width: 80%;
+        height: 36rem;
+        margin: 1rem auto;
+    }
 
     &.boxShadow {
         box-shadow: 5px 5px 7px 0 rgba(6, 6, 49, 0.2);
