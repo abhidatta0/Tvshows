@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 
 import { TVSHOWSINFO } from '../../typings/tvShowsTypes';
@@ -7,20 +6,11 @@ import { getTVShowsList } from '../../apis';
 import { Shows, LoadingSpinner } from '../index';
 
 const Home = () => {
-    const [isDataPresent, setIsDataPresent] = useState(false); // to call api once
     const {
         data: tvshows,
         isLoading,
         isError,
-    } = useQuery<TVSHOWSINFO[], Error>('shows', getTVShowsList, {
-        enabled: !isDataPresent,
-    });
-
-    useEffect(() => {
-        if (tvshows?.length) {
-            setIsDataPresent(true);
-        }
-    }, [tvshows]);
+    } = useQuery<TVSHOWSINFO[], Error>('shows', getTVShowsList);
 
     if (isLoading) {
         return <LoadingSpinner />;
